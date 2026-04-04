@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expressions Card Shop | Desborough</title>
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#FFFBF5;--coral:#FF8A80;--mint:#69F0AE;--yellow:#FFE082;--brown:#795548;--text:#3E2723}
+body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Patrick Hand',cursive;color:var(--brown)}
+a{color:var(--brown);text-decoration:none}
+
+/* WASHI TAPE DECORATION */
+.washi{height:12px;background:repeating-linear-gradient(45deg,var(--coral),var(--coral) 10px,var(--yellow) 10px,var(--yellow) 20px,var(--mint) 20px,var(--mint) 30px);opacity:.5}
+
+/* NAV */
+nav{background:var(--bg);border-bottom:3px solid var(--yellow);padding:15px 0;position:sticky;top:0;z-index:100}
+nav .inner{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:0 20px}
+nav .logo{font-family:'Patrick Hand',cursive;font-size:1.6rem;color:var(--brown)}
+nav .logo span{color:var(--coral)}
+nav ul{list-style:none;display:flex;gap:25px}
+nav ul li a{color:var(--text);font-weight:600;font-size:.9rem;transition:color .3s}
+nav ul li a:hover{color:var(--coral)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+.hamburger span{width:25px;height:2px;background:var(--brown)}
+
+/* HERO */
+.hero{min-height:90vh;display:flex;align-items:center;justify-content:center;position:relative;padding:60px 20px;background:linear-gradient(135deg,#FFFBF5 0%,#FFF0E0 30%,#FFE8EC 60%,#E8FFF0 100%)}
+.hero::before{content:'';position:absolute;top:20%;left:10%;width:200px;height:200px;background:var(--coral);opacity:.08;border-radius:60% 40% 70% 30%;filter:blur(40px)}
+.hero::after{content:'';position:absolute;bottom:20%;right:10%;width:250px;height:250px;background:var(--mint);opacity:.1;border-radius:40% 60% 30% 70%;filter:blur(50px)}
+.paper-layers{position:relative;text-align:center;z-index:2;background:white;padding:60px 50px;max-width:650px;border-radius:4px;box-shadow:8px 8px 0 var(--yellow),-4px -4px 0 var(--coral),0 20px 60px rgba(0,0,0,.08)}
+.hero h1{font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.2;margin-bottom:10px}
+.hero p{font-size:1.05rem;opacity:.75;margin-bottom:25px;max-width:450px;margin-left:auto;margin-right:auto}
+.hero-cta{display:inline-block;background:var(--coral);color:white;padding:12px 35px;border-radius:30px;font-family:'Patrick Hand',cursive;font-size:1.2rem;transition:transform .3s,box-shadow .3s}
+.hero-cta:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(255,138,128,.3);color:white}
+
+/* CONFETTI */
+.confetti-dot{position:absolute;width:8px;height:8px;border-radius:50%;opacity:.3;pointer-events:none}
+
+/* SECTIONS */
+section{padding:70px 20px}
+.container{max-width:1100px;margin:auto}
+.section-title{text-align:center;font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:8px}
+.section-sub{text-align:center;opacity:.6;margin-bottom:45px;font-size:.95rem}
+
+/* WASHI TAPE ACCENT */
+.washi-accent{display:block;width:120px;height:10px;margin:0 auto 30px;background:var(--yellow);opacity:.6;transform:rotate(-2deg);border-radius:1px}
+
+/* SERVICES - GREETING CARDS */
+.services-section{background:#FFF5EE}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
+.card-item{background:white;border-radius:6px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.06);transition:transform .4s;position:relative;cursor:default}
+.card-item:hover{transform:rotate(-1deg) translateY(-5px)}
+.card-fold{height:8px;background:linear-gradient(to bottom,rgba(0,0,0,.04),transparent)}
+.card-inner{padding:30px 25px;text-align:center}
+.card-emoji{font-size:2.5rem;margin-bottom:12px}
+.card-item h3{font-size:1.4rem;margin-bottom:6px;color:var(--brown)}
+.card-item .price{font-family:'Patrick Hand',cursive;font-size:1.3rem;color:var(--coral)}
+.card-corner{position:absolute;top:0;right:0;width:0;height:0;border-top:30px solid var(--yellow);border-left:30px solid transparent;opacity:.5}
+
+/* GALLERY */
+.gallery-scatter{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:25px}
+.scatter-card{background:white;padding:10px;border-radius:4px;box-shadow:0 4px 15px rgba(0,0,0,.08);transition:transform .4s;transform:rotate(var(--r,0deg))}
+.scatter-card:nth-child(1){--r:-2deg}
+.scatter-card:nth-child(2){--r:1deg}
+.scatter-card:nth-child(3){--r:-1deg}
+.scatter-card:nth-child(4){--r:2deg}
+.scatter-card:hover{transform:rotate(0deg) scale(1.03)}
+.scatter-card img{width:100%;height:200px;object-fit:cover;border-radius:2px}
+.scatter-card p{text-align:center;padding:10px 0 5px;font-family:'Patrick Hand',cursive;color:var(--brown);font-size:1.1rem}
+
+/* REVIEWS */
+.reviews-section{background:#FFF5EE}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
+.speech-bubble{background:white;padding:30px;border-radius:20px;position:relative;box-shadow:0 4px 20px rgba(0,0,0,.05)}
+.speech-bubble::after{content:'';position:absolute;bottom:-15px;left:30px;width:0;height:0;border-left:15px solid transparent;border-right:15px solid transparent;border-top:15px solid white}
+.speech-bubble .stars{color:var(--yellow);font-size:1.2rem;margin-bottom:10px}
+.speech-bubble p{line-height:1.7;margin-bottom:12px;font-style:italic}
+.speech-bubble .author{font-family:'Patrick Hand',cursive;color:var(--coral);font-size:1.1rem}
+
+/* STATS */
+.stats-row{display:flex;flex-wrap:wrap;justify-content:center;gap:40px;margin:40px 0}
+.stat-item{text-align:center;background:white;padding:25px 30px;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,.05);min-width:160px}
+.stat-num{font-family:'Patrick Hand',cursive;font-size:1.8rem;color:var(--coral);display:block}
+.stat-label{font-size:.8rem;opacity:.5;text-transform:uppercase;letter-spacing:1px}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.contact-info{display:flex;flex-direction:column;gap:20px}
+.contact-item{display:flex;align-items:flex-start;gap:15px;background:white;padding:20px;border-radius:12px;box-shadow:0 3px 12px rgba(0,0,0,.04)}
+.contact-icon{width:40px;height:40px;background:var(--coral);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:white;font-size:1.1rem}
+.contact-item h4{color:var(--brown);margin-bottom:3px;font-size:1rem}
+.contact-item p{opacity:.75;font-size:.9rem}
+.map-wrap{border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.map-wrap iframe{width:100%;height:350px;border:0}
+
+/* FOOTER */
+footer{text-align:center;padding:30px 20px;font-size:.85rem;opacity:.5}
+footer a{color:var(--coral)}
+
+@media(max-width:768px){
+  nav ul{display:none;position:absolute;top:100%;left:0;width:100%;background:var(--bg);flex-direction:column;padding:20px;gap:15px;border-bottom:3px solid var(--yellow)}
+  nav ul.open{display:flex}
+  .hamburger{display:flex}
+  .paper-layers{padding:35px 25px;margin:0 10px}
+  .contact-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="washi"></div>
+
+<nav>
+  <div class="inner">
+    <div class="logo">Expressions <span>&hearts;</span></div>
+    <button class="hamburger" onclick="document.querySelector('nav ul').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="paper-layers">
+    <h1>Expressions Card Shop</h1>
+    <p>Your friendly independent card and gift shop in the heart of Desborough. Cards, gifts, wrapping and so much more.</p>
+    <a href="tel:07824555576" class="hero-cta">Visit Us Today</a>
+  </div>
+</section>
+
+<section id="services" class="services-section">
+  <div class="container">
+    <h2 class="section-title">What We Offer</h2>
+    <div class="washi-accent"></div>
+    <div class="cards-grid">
+      <div class="card-item"><div class="card-fold"></div><div class="card-corner"></div><div class="card-inner"><div class="card-emoji">&#127872;</div><h3>Greeting Cards</h3><p class="price">from &pound;2</p></div></div>
+      <div class="card-item"><div class="card-fold"></div><div class="card-corner"></div><div class="card-inner"><div class="card-emoji">&#127873;</div><h3>Gift Wrapping</h3><p class="price">&pound;2</p></div></div>
+      <div class="card-item"><div class="card-fold"></div><div class="card-corner"></div><div class="card-inner"><div class="card-emoji">&#127881;</div><h3>Party Supplies</h3><p class="price">various</p></div></div>
+      <div class="card-item"><div class="card-fold"></div><div class="card-corner"></div><div class="card-inner"><div class="card-emoji">&#9993;</div><h3>Personalised Cards</h3><p class="price">from &pound;5</p></div></div>
+      <div class="card-item"><div class="card-fold"></div><div class="card-corner"></div><div class="card-inner"><div class="card-emoji">&#127890;</div><h3>Gift Bags</h3><p class="price">from &pound;1.50</p></div></div>
+      <div class="card-item"><div class="card-fold"></div><div class="card-corner"></div><div class="card-inner"><div class="card-emoji">&#127880;</div><h3>Balloons</h3><p class="price">from &pound;3</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container">
+    <h2 class="section-title">Our Shop</h2>
+    <div class="washi-accent" style="background:var(--mint)"></div>
+    <div class="gallery-scatter">
+      <div class="scatter-card"><img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=800" alt="Cards display" loading="lazy"><p>Beautiful Selection</p></div>
+      <div class="scatter-card"><img src="https://images.unsplash.com/photo-1549465220-1a8b9238f939?w=800" alt="Gift wrapping" loading="lazy"><p>Gift Wrapping</p></div>
+      <div class="scatter-card"><img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=800" alt="Greeting cards" loading="lazy"><p>Greeting Cards</p></div>
+      <div class="scatter-card"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800" alt="Party supplies" loading="lazy"><p>Party Supplies</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" class="reviews-section">
+  <div class="container">
+    <h2 class="section-title">Kind Words</h2>
+    <div class="washi-accent" style="background:var(--coral)"></div>
+    <div class="stats-row">
+      <div class="stat-item"><span class="stat-num">Independent</span><span class="stat-label">Local Shop</span></div>
+      <div class="stat-item"><span class="stat-num">Desborough</span><span class="stat-label">High Street</span></div>
+      <div class="stat-item"><span class="stat-num">&hearts;</span><span class="stat-label">Community Loved</span></div>
+    </div>
+    <div class="reviews-grid">
+      <div class="speech-bubble">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>Best card selection anywhere. Every occasion covered and then some. I never need to go anywhere else!</p>
+        <span class="author">- Delighted Shopper</span>
+      </div>
+      <div class="speech-bubble">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>The gift wrapping is gorgeous. They take such care with every package. It's the finishing touch that makes the gift special.</p>
+        <span class="author">- Regular Customer</span>
+      </div>
+      <div class="speech-bubble">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>Always find the perfect card here. The staff are so helpful and the range is incredible for a local shop.</p>
+        <span class="author">- Happy Local</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">Find Us</h2>
+    <div class="washi-accent"></div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">&#9906;</div>
+          <div><h4>Address</h4><p>62 Station Road, Desborough, Kettering NN14 2RS</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">&#9742;</div>
+          <div><h4>Phone</h4><p><a href="tel:07824555576">07824 555576</a></p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">&#9993;</div>
+          <div><h4>Email</h4><p><a href="mailto:expressions_of_desborough@yahoo.co.uk">expressions_of_desborough@yahoo.co.uk</a></p></div>
+        </div>
+      </div>
+      <div class="map-wrap">
+        <iframe src="https://maps.google.com/maps?q=Expressions+Card+Shop+62+Station+Road+Desborough&output=embed" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="washi" style="margin-bottom:20px"></div>
+  <p>&copy; 2026 Expressions Card Shop. <a href="https://twix.tf" target="_blank">Built by Harry</a></p>
+</footer>
+
+</body>
+</html>
