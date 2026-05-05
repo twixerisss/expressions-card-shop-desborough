@@ -3,315 +3,1025 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expressions Card Shop — Desborough</title>
-    <meta name="description" content="Expressions Card Shop — Your friendly independent card and gift shop in Desborough. Cards, gifts, wrapping and more.">
+    <title>Expressions — Independent Card &amp; Gift Shop · Desborough</title>
+    <meta name="description" content="Expressions — your friendly independent card &amp; gift shop on Station Road, Desborough. Greeting cards, gift wrap, balloons, personalised cards &amp; more.">
+    <meta name="theme-color" content="#fbf5e9">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&family=Caveat:wght@500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <style>
-        :root {
-            --primary: #FF8A80;
-            --primary-light: #FFAB91;
-            --primary-rgb: 255, 138, 128;
-            --bg: #f5f0eb;
-            --bg-raised: #ffffff;
-            --bg-warm: #ebe4db;
-            --bg-dark: #2c2420;
-            --text: #2c2420;
-            --text-secondary: #7a6e64;
-            --text-muted: #a69d95;
-            --border: rgba(44,36,32,0.08);
-            --border-strong: rgba(44,36,32,0.15);
+        :root{
+            --cream:#fbf5e9;
+            --cream-2:#f3ead7;
+            --cream-3:#ebe0c6;
+            --ink:#231a14;
+            --ink-2:#3a2e22;
+            --ink-mute:#7a6a55;
+            --coral:#e8806a;
+            --teal:#5a8b88;
+            --mustard:#cf9b3a;
+            --blush:#dba894;
+            --line:rgba(35,26,20,0.12);
+            --line-strong:rgba(35,26,20,0.22);
         }
         *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+        ::selection{background:var(--coral);color:var(--cream);}
         html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
-        body{font-family:'Work Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;}
+        body{
+            font-family:'Newsreader',Georgia,serif;
+            background:var(--cream);
+            color:var(--ink);
+            line-height:1.6;
+            overflow-x:hidden;
+            font-size:1.05rem;
+        }
+        body::before{
+            content:'';position:fixed;inset:0;pointer-events:none;z-index:1;mix-blend-mode:multiply;opacity:0.05;
+            background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.14  0 0 0 0 0.10  0 0 0 0 0.08  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+        }
 
-        nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2.5rem;height:68px;display:flex;align-items:center;justify-content:space-between;background:rgba(245,240,235,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
-        .nav-logo{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:600;color:var(--text);text-decoration:none;}
-        .nav-logo span{color:var(--primary);}
-        .nav-links{display:flex;gap:2rem;list-style:none;}
-        .nav-links a{color:var(--text-secondary);text-decoration:none;font-size:0.82rem;font-weight:500;transition:color 0.3s;}
-        .nav-links a:hover{color:var(--primary);}
-        .nav-cta{background:var(--bg-dark);color:#f5f0eb;padding:0.55rem 1.5rem;border-radius:100px;text-decoration:none;font-weight:600;font-size:0.8rem;transition:all 0.3s;}
-        .nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,0.15);}
-        .menu-toggle{display:none;background:none;border:1px solid var(--border);color:var(--text);font-size:1.1rem;cursor:pointer;width:40px;height:40px;border-radius:50%;align-items:center;justify-content:center;}
+        .display{font-family:'Caprasimo',serif;font-weight:400;letter-spacing:-0.005em;}
+        .hand{font-family:'Caveat',cursive;font-weight:600;}
+        .mono{font-family:'DM Mono',monospace;}
+        .it{font-style:italic;}
 
-        .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:6rem 3rem;gap:4rem;}
-        .hero-text{max-width:500px;}
-        .hero-chip{display:inline-flex;align-items:center;gap:0.5rem;background:var(--bg-warm);padding:0.4rem 1rem;border-radius:100px;font-size:0.75rem;font-weight:600;color:var(--primary);margin-bottom:1.5rem;}
-        .hero h1{font-family:'Fraunces',serif;font-size:clamp(2.5rem,5vw,3.8rem);font-weight:700;line-height:1.1;margin-bottom:1.5rem;letter-spacing:-0.02em;}
-        .hero h1 span{color:var(--primary);font-style:italic;font-weight:400;}
-        .hero p{font-size:1rem;color:var(--text-secondary);line-height:1.7;margin-bottom:2.5rem;max-width:420px;}
-        .hero-btns{display:flex;gap:0.75rem;flex-wrap:wrap;}
-        .btn-dark{background:var(--bg-dark);color:#f5f0eb;padding:0.8rem 2rem;border-radius:100px;text-decoration:none;font-weight:600;font-size:0.88rem;transition:all 0.3s;border:none;cursor:pointer;}
-        .btn-dark:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.12);}
-        .btn-warm{background:var(--bg-warm);color:var(--text);padding:0.8rem 2rem;border-radius:100px;text-decoration:none;font-weight:600;font-size:0.88rem;transition:all 0.3s;border:none;}
-        .btn-warm:hover{background:var(--primary);color:#fff;}
-        .hero-img{border-radius:24px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 24px 60px rgba(0,0,0,0.1);}
-        .hero-img img{width:100%;height:100%;object-fit:cover;}
+        .accent-coral{color:var(--coral);}
+        .accent-teal{color:var(--teal);}
+        .accent-mustard{color:var(--mustard);}
+        .accent-blush{color:var(--blush);}
 
-        .stats-band{display:grid;grid-template-columns:repeat(3,1fr);background:var(--bg-dark);color:#f5f0eb;}
-        .stat-box{text-align:center;padding:2rem 1rem;border-right:1px solid rgba(255,255,255,0.08);}
-        .stat-box:last-child{border-right:none;}
-        .stat-n{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:700;}
-        .stat-l{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.5);font-weight:500;margin-top:0.2rem;}
+        a{color:inherit;}
 
-        section{padding:6rem 2.5rem;}
-        .container{max-width:1050px;margin:0 auto;}
-        .sec-tag{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--primary);font-weight:600;margin-bottom:0.75rem;}
-        .sec-title{font-family:'Fraunces',serif;font-size:clamp(1.8rem,4vw,2.5rem);font-weight:600;margin-bottom:0.5rem;}
-        .sec-sub{color:var(--text-secondary);font-size:0.95rem;max-width:480px;line-height:1.7;}
+        /* ========= NAV ========= */
+        nav{
+            position:fixed;top:0;left:0;right:0;z-index:50;
+            padding:1.1rem 2rem;display:flex;align-items:center;justify-content:space-between;
+            transition:background 0.4s,padding 0.4s,border 0.4s,box-shadow 0.4s;
+            border-bottom:1px solid transparent;
+        }
+        nav.scrolled{background:rgba(251,245,233,0.92);backdrop-filter:blur(14px) saturate(140%);border-bottom-color:var(--line);padding:0.65rem 2rem;box-shadow:0 6px 24px -18px rgba(35,26,20,0.25);}
+        .nav-logo{display:flex;align-items:center;gap:0.65rem;text-decoration:none;color:var(--ink);}
+        .nav-logo svg{width:34px;height:34px;}
+        .nav-logo .word{font-family:'Caprasimo',serif;font-size:1.35rem;letter-spacing:-0.005em;}
+        .nav-logo .word em{font-family:'Caveat',cursive;font-style:normal;color:var(--coral);font-size:1.15em;display:inline-block;transform:translateY(0.04em) rotate(-4deg);margin-left:0.1em;}
+        .nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
+        .nav-links a{
+            color:var(--ink-2);text-decoration:none;font-family:'DM Mono',monospace;
+            font-size:0.72rem;text-transform:uppercase;letter-spacing:0.18em;
+            transition:color 0.3s;position:relative;padding:0.2rem 0;
+        }
+        .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:2px;background:var(--coral);transition:width 0.4s cubic-bezier(0.7,0,0.3,1);border-radius:2px;}
+        .nav-links a:hover{color:var(--ink);}
+        .nav-links a:hover::after{width:100%;}
+        .nav-cta{
+            background:var(--ink);color:var(--cream);text-decoration:none;
+            font-family:'DM Mono',monospace;font-size:0.7rem;font-weight:500;
+            text-transform:uppercase;letter-spacing:0.18em;padding:0.7rem 1.3rem;
+            border:1px solid var(--ink);border-radius:100px;transition:all 0.3s;
+            display:inline-flex;align-items:center;gap:0.5rem;
+        }
+        .nav-cta:hover{background:var(--coral);border-color:var(--coral);transform:translateY(-1px);}
+        .menu-toggle{display:none;background:var(--cream-2);border:1px solid var(--line-strong);color:var(--ink);width:42px;height:42px;cursor:pointer;align-items:center;justify-content:center;border-radius:50%;font-size:1.05rem;}
 
-        .about-flex{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:3rem;}
-        .about-photo{border-radius:20px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 16px 48px rgba(0,0,0,0.08);}
-        .about-photo img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s;}
-        .about-photo:hover img{transform:scale(1.03);}
-        .about-copy h3{font-family:'Fraunces',serif;font-size:1.5rem;margin-bottom:1rem;}
-        .about-copy p{color:var(--text-secondary);line-height:1.8;margin-bottom:1rem;}
+        /* ========= HERO ========= */
+        .hero{
+            min-height:100vh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;
+            padding:8rem 2.5rem 0;overflow:hidden;
+            background:
+                radial-gradient(circle at 88% 18%,rgba(232,128,106,0.18) 0%,transparent 38%),
+                radial-gradient(circle at 8% 80%,rgba(207,155,58,0.14) 0%,transparent 40%);
+        }
+        /* hand-drawn ribbon up top right */
+        .hero-ribbon{
+            position:absolute;top:5.5rem;right:-2rem;width:240px;color:var(--coral);
+            transform:rotate(8deg);opacity:0.85;pointer-events:none;z-index:2;
+        }
+        /* stamp mark */
+        .hero-stamp{
+            position:absolute;top:6rem;left:2.2rem;width:120px;height:120px;
+            border:2px dashed var(--teal);border-radius:50%;
+            display:flex;align-items:center;justify-content:center;text-align:center;
+            transform:rotate(-9deg);color:var(--teal);font-family:'DM Mono',monospace;
+            font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;line-height:1.4;
+            padding:1rem;z-index:2;
+        }
+        .hero-stamp::before{
+            content:'';position:absolute;inset:8px;border:1px solid var(--teal);border-radius:50%;opacity:0.6;
+        }
 
-        .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem;margin-top:3rem;}
-        .menu-card{background:var(--bg-raised);border:1px solid var(--border);border-radius:16px;padding:1.75rem;display:flex;gap:1rem;transition:all 0.3s;box-shadow:0 2px 8px rgba(0,0,0,0.03);}
-        .menu-card:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,0.06);}
-        .menu-emoji{font-size:2rem;flex-shrink:0;width:48px;height:48px;background:var(--bg-warm);border-radius:12px;display:flex;align-items:center;justify-content:center;}
-        .menu-card h3{font-size:0.95rem;font-weight:600;margin-bottom:0.25rem;}
-        .menu-card p{color:var(--text-secondary);font-size:0.85rem;line-height:1.6;}
-        .menu-price{color:var(--primary);font-weight:700;font-size:0.88rem;margin-top:0.5rem;display:inline-block;}
+        .hero-meta{
+            position:relative;z-index:3;display:flex;justify-content:space-between;align-items:flex-start;
+            margin-bottom:auto;padding-top:1rem;font-family:'DM Mono',monospace;
+            font-size:0.7rem;text-transform:uppercase;letter-spacing:0.18em;color:var(--ink-mute);
+        }
+        .hero-meta .ml{display:flex;gap:1.6rem;flex-wrap:wrap;}
+        .hero-meta .ml span:first-child{color:var(--coral);}
 
-        .photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.75rem;margin-top:3rem;}
-        .photo-cell{border-radius:16px;overflow:hidden;aspect-ratio:1;box-shadow:0 4px 16px rgba(0,0,0,0.06);}
-        .photo-cell img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s;}
-        .photo-cell:hover img{transform:scale(1.05);}
+        .hero-content{position:relative;z-index:3;max-width:1300px;width:100%;}
+        .hero-tag{
+            font-family:'Caveat',cursive;font-size:1.5rem;color:var(--coral);
+            margin-bottom:0.4rem;display:inline-flex;align-items:center;gap:0.7rem;
+            transform:rotate(-1.5deg);
+        }
+        .hero h1{
+            font-family:'Caprasimo',serif;font-weight:400;
+            font-size:clamp(3.5rem,10.5vw,7rem);line-height:0.95;letter-spacing:-0.02em;
+            margin-bottom:2rem;
+        }
+        .hero h1 .row{display:block;}
+        .hero h1 .row.indent{padding-left:clamp(1.5rem,12vw,8rem);}
+        .hero h1 em{font-family:'Newsreader',serif;font-style:italic;font-weight:500;color:var(--ink-2);}
+        .hero h1 .underline-mark{position:relative;display:inline-block;}
+        .hero h1 .underline-mark::after{
+            content:'';position:absolute;left:-3%;right:-3%;bottom:0.04em;height:0.18em;
+            background:var(--coral);z-index:-1;opacity:0.55;border-radius:4px;
+            transform:rotate(-0.6deg);
+        }
+        .hero h1 .swirl{color:var(--mustard);font-family:'Caveat',cursive;font-style:normal;font-weight:700;}
 
-        .rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem;margin-top:3rem;}
-        .rev-card{background:var(--bg-raised);border:1px solid var(--border);border-radius:16px;padding:2rem;box-shadow:0 2px 8px rgba(0,0,0,0.03);transition:all 0.3s;}
-        .rev-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.06);}
-        .rev-stars{color:#f59e0b;font-size:0.88rem;margin-bottom:0.75rem;}
-        .rev-text{color:var(--text-secondary);font-size:0.9rem;line-height:1.75;margin-bottom:1rem;font-style:italic;}
-        .rev-row{display:flex;align-items:center;gap:0.75rem;}
-        .rev-ava{width:36px;height:36px;border-radius:50%;background:var(--bg-warm);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:0.8rem;color:var(--primary);}
-        .rev-name{font-weight:600;font-size:0.85rem;}
-        .rev-from{color:var(--text-muted);font-size:0.72rem;}
+        .hero-bottom{
+            display:grid;grid-template-columns:1.1fr auto 1fr;gap:3rem;align-items:end;
+            padding:2.5rem 0 4rem;border-top:1.5px dashed var(--line-strong);margin-top:1.5rem;
+        }
+        .hero-lede{max-width:380px;font-size:1.1rem;color:var(--ink-2);line-height:1.7;font-style:italic;font-weight:400;}
+        .hero-lede::before{
+            content:'';display:block;width:34px;height:3px;background:var(--coral);
+            border-radius:3px;margin-bottom:0.9rem;
+        }
+        .hero-icon{justify-self:center;color:var(--coral);}
+        .hero-icon svg{width:62px;height:62px;}
+        .hero-btns{display:flex;gap:0.8rem;flex-wrap:wrap;justify-self:end;}
 
-        .contact-duo{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;}
-        .contact-box{background:var(--bg-raised);border:1px solid var(--border);border-radius:16px;padding:2.5rem;box-shadow:0 2px 8px rgba(0,0,0,0.03);}
-        .contact-box h3{font-family:'Fraunces',serif;font-size:1.15rem;margin-bottom:1.5rem;}
-        .h-tbl{width:100%;border-collapse:collapse;}
-        .h-tbl tr{border-bottom:1px solid var(--border);}
-        .h-tbl tr:last-child{border-bottom:none;}
-        .h-tbl td{padding:0.6rem 0;font-size:0.88rem;}
-        .h-tbl td:first-child{font-weight:500;}
-        .h-tbl td:last-child{text-align:right;color:var(--text-secondary);}
-        .ct-list{display:flex;flex-direction:column;gap:1.25rem;}
-        .ct-item{display:flex;align-items:center;gap:1rem;}
-        .ct-ico{width:44px;height:44px;border-radius:12px;background:var(--bg-warm);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
-        .ct-lbl{font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;}
-        .ct-val{font-weight:500;font-size:0.9rem;}
-        .ct-val a{color:var(--text);text-decoration:none;transition:color 0.2s;}
-        .ct-val a:hover{color:var(--primary);}
-        .map-card{margin-top:2rem;border-radius:16px;overflow:hidden;height:300px;border:1px solid var(--border);box-shadow:0 4px 16px rgba(0,0,0,0.06);}
-        .map-card iframe{width:100%;height:100%;border:0;}
+        .btn{
+            display:inline-flex;align-items:center;gap:0.7rem;
+            font-family:'DM Mono',monospace;font-size:0.74rem;font-weight:500;
+            text-transform:uppercase;letter-spacing:0.16em;text-decoration:none;cursor:pointer;
+            padding:1rem 1.6rem;border:1.5px solid;border-radius:100px;
+            transition:all 0.35s cubic-bezier(0.7,0,0.3,1);position:relative;
+        }
+        .btn-solid{background:var(--ink);color:var(--cream);border-color:var(--ink);}
+        .btn-solid:hover{background:var(--coral);border-color:var(--coral);transform:translateY(-2px);box-shadow:0 14px 28px -14px rgba(232,128,106,0.6);}
+        .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink);}
+        .btn-ghost:hover{background:var(--ink);color:var(--cream);}
+        .btn .arr{transition:transform 0.35s cubic-bezier(0.7,0,0.3,1);}
+        .btn:hover .arr{transform:translateX(4px);}
 
-        .cta-warm{text-align:center;padding:6rem 2rem;background:var(--bg-dark);color:#f5f0eb;border-radius:24px;margin:0 2rem;position:relative;overflow:hidden;}
-        .cta-warm h2{font-family:'Fraunces',serif;font-size:clamp(2rem,4vw,2.8rem);margin-bottom:0.75rem;}
-        .cta-warm p{color:rgba(255,255,255,0.6);margin-bottom:2rem;max-width:420px;margin-left:auto;margin-right:auto;}
-        .cta-warm .btn-dark{background:#f5f0eb;color:var(--bg-dark);}
+        /* ========= MARQUEE ========= */
+        .marquee{
+            border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);
+            background:var(--ink);color:var(--cream);overflow:hidden;padding:1.3rem 0;position:relative;
+        }
+        .marquee-track{display:flex;gap:3rem;width:max-content;animation:scroll 38s linear infinite;}
+        .marquee-item{
+            font-family:'Caprasimo',serif;font-size:1.6rem;
+            white-space:nowrap;display:flex;align-items:center;gap:2.5rem;
+        }
+        .marquee-item .dot{color:var(--coral);font-size:1.2rem;}
+        .marquee-item.italic{font-family:'Newsreader',serif;font-style:italic;font-weight:500;color:var(--blush);font-size:1.4rem;}
+        .marquee-item.hand{font-family:'Caveat',cursive;color:var(--mustard);font-size:2rem;font-weight:600;}
+        @keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
-        footer{border-top:1px solid var(--border);padding:2rem 2.5rem;background:var(--bg-raised);}
-        .foot-inner{max-width:1050px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
-        .foot-logo{font-family:'Fraunces',serif;font-size:1rem;color:var(--text-secondary);}
-        .foot-links{display:flex;gap:1.5rem;}
-        .foot-links a{color:var(--text-muted);text-decoration:none;font-size:0.8rem;transition:color 0.2s;}
-        .foot-links a:hover{color:var(--text);}
-        .foot-credit{color:var(--text-muted);font-size:0.75rem;}
-        .foot-credit a{color:var(--text-secondary);text-decoration:none;}
+        /* ========= SECTION SHELL ========= */
+        section{padding:8rem 2.5rem;position:relative;}
+        .container{max-width:1240px;margin:0 auto;position:relative;}
+        .sec-num{
+            font-family:'DM Mono',monospace;font-size:0.7rem;text-transform:uppercase;
+            letter-spacing:0.22em;margin-bottom:1.4rem;
+            display:flex;align-items:center;gap:0.85rem;
+        }
+        .sec-num::before{content:'';width:36px;height:1.5px;border-radius:2px;}
+        .sec-title{
+            font-family:'Caprasimo',serif;font-weight:400;
+            font-size:clamp(2.4rem,5.4vw,4.6rem);
+            line-height:0.98;letter-spacing:-0.015em;margin-bottom:1.2rem;
+        }
+        .sec-title em{font-family:'Newsreader',serif;font-style:italic;font-weight:500;color:var(--ink-2);}
+        .sec-title .hand{font-family:'Caveat',cursive;font-weight:700;display:inline-block;font-size:1.1em;line-height:0.9;}
+        .sec-desc{color:var(--ink-2);font-size:1.1rem;max-width:540px;line-height:1.75;font-style:italic;}
 
-        .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1);}
+        /* per-section accent override */
+        .sec-coral .sec-num,.sec-coral .sec-num::before{background:var(--coral);color:var(--coral);}
+        .sec-coral .sec-num::before{color:transparent;}
+        .sec-teal .sec-num,.sec-teal .sec-num::before{background:var(--teal);color:var(--teal);}
+        .sec-teal .sec-num::before{color:transparent;}
+        .sec-mustard .sec-num,.sec-mustard .sec-num::before{background:var(--mustard);color:var(--mustard);}
+        .sec-mustard .sec-num::before{color:transparent;}
+        .sec-blush .sec-num,.sec-blush .sec-num::before{background:var(--blush);color:var(--blush);}
+        .sec-blush .sec-num::before{color:transparent;}
+
+        /* ========= ABOUT (TEAL) ========= */
+        .about{
+            border-top:1.5px solid var(--ink);
+            background:
+                repeating-linear-gradient(0deg,transparent 0px,transparent 38px,rgba(90,139,136,0.06) 38px,rgba(90,139,136,0.06) 39px),
+                var(--cream);
+        }
+        .about-grid{display:grid;grid-template-columns:6fr 6fr;gap:5rem;margin-top:3.5rem;align-items:center;}
+        .about-img-wrap{position:relative;}
+        .about-img{
+            position:relative;aspect-ratio:4/5;overflow:hidden;
+            border:8px solid var(--cream);box-shadow:0 14px 36px -14px rgba(35,26,20,0.3);
+            transform:rotate(-2deg);background:var(--cream-2);
+        }
+        .about-img img{width:100%;height:100%;object-fit:cover;}
+        .about-tag{
+            position:absolute;top:-1.2rem;right:1rem;background:var(--mustard);color:var(--cream);
+            padding:0.5rem 1rem;border-radius:100px;font-family:'Caveat',cursive;font-size:1.4rem;
+            transform:rotate(6deg);box-shadow:0 4px 14px -4px rgba(35,26,20,0.3);z-index:2;
+        }
+        .about-stamp-2{
+            position:absolute;bottom:-1.5rem;left:-1.5rem;width:96px;height:96px;
+            background:var(--coral);color:var(--cream);border-radius:50%;
+            display:flex;align-items:center;justify-content:center;text-align:center;
+            font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;
+            line-height:1.5;padding:0.8rem;transform:rotate(-12deg);
+            box-shadow:0 8px 18px -8px rgba(35,26,20,0.4);
+        }
+        .about-copy{padding-top:0.5rem;}
+        .about-quote{
+            font-family:'Newsreader',serif;font-style:italic;font-weight:500;
+            font-size:clamp(1.5rem,2.2vw,1.9rem);line-height:1.4;color:var(--ink);
+            margin-bottom:2rem;padding-left:1.4rem;border-left:3px solid var(--teal);
+        }
+        .about-quote .hand{color:var(--teal);font-size:1.25em;line-height:0.6;display:inline-block;transform:translateY(0.16em);font-weight:700;}
+        .about-text{color:var(--ink-2);font-size:1.05rem;line-height:1.85;margin-bottom:1.1rem;}
+        .about-sign{display:flex;align-items:center;gap:1.1rem;padding-top:1.4rem;border-top:1px dashed var(--line-strong);margin-top:1.5rem;}
+        .about-sign .sig{font-family:'Caveat',cursive;font-size:2.2rem;color:var(--teal);line-height:1;font-weight:700;}
+        .about-sign .role{font-family:'DM Mono',monospace;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.18em;color:var(--ink-mute);}
+
+        /* ========= STATS STRIP ========= */
+        .strip{
+            display:grid;grid-template-columns:repeat(4,1fr);
+            border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);
+            background:var(--cream-2);
+        }
+        .strip-cell{padding:2.6rem 2rem;border-right:1px dashed var(--line-strong);position:relative;}
+        .strip-cell:last-child{border-right:none;}
+        .strip-cell .k{font-family:'Caprasimo',serif;font-size:2.6rem;color:var(--ink);line-height:1;margin-bottom:0.5rem;letter-spacing:-0.01em;}
+        .strip-cell .k em{font-family:'Newsreader',serif;font-style:italic;font-weight:500;color:var(--coral);}
+        .strip-cell:nth-child(2) .k em{color:var(--teal);}
+        .strip-cell:nth-child(3) .k em{color:var(--mustard);}
+        .strip-cell:nth-child(4) .k em{color:var(--blush);}
+        .strip-cell .l{font-family:'DM Mono',monospace;font-size:0.66rem;text-transform:uppercase;letter-spacing:0.2em;color:var(--ink-mute);}
+        .strip-cell .idx{position:absolute;top:0.7rem;right:0.85rem;font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--ink-mute);letter-spacing:0.1em;}
+
+        /* ========= CATEGORIES (MUSTARD) ========= */
+        .categories{border-top:1.5px solid var(--ink);background:var(--cream);}
+        .cat-head{display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:end;margin-bottom:4rem;}
+        .cat-foot{
+            font-family:'DM Mono',monospace;font-size:0.7rem;text-transform:uppercase;
+            letter-spacing:0.18em;color:var(--ink-mute);text-align:center;margin-top:3rem;
+        }
+        .cat-foot .accent-mustard{color:var(--mustard);}
+        .cat-grid{
+            display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;
+        }
+        .cat-card{
+            position:relative;background:var(--cream-2);border:1.5px solid var(--ink);
+            padding:2.4rem 1.8rem 1.8rem;border-radius:6px;
+            transition:transform 0.45s cubic-bezier(0.16,1,0.3,1),box-shadow 0.45s,background 0.45s;
+            min-height:240px;display:flex;flex-direction:column;justify-content:space-between;
+            text-decoration:none;color:var(--ink);
+            box-shadow:6px 6px 0 var(--ink);
+        }
+        .cat-card:hover{transform:translate(-3px,-3px);box-shadow:10px 10px 0 var(--ink);}
+        .cat-card:nth-child(1){background:var(--cream-2);}
+        .cat-card:nth-child(2){background:#f4ddd1;}
+        .cat-card:nth-child(3){background:#dfe9e5;}
+        .cat-card:nth-child(4){background:#f4e6c4;}
+        .cat-card:nth-child(5){background:#e9dfca;}
+        .cat-card:nth-child(6){background:#f0d8c8;}
+        .cat-tag{
+            position:absolute;top:-0.8rem;left:50%;transform:translateX(-50%) rotate(-3deg);
+            background:var(--ink);color:var(--cream);padding:0.35rem 0.9rem;border-radius:100px;
+            font-family:'DM Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.18em;
+            white-space:nowrap;
+        }
+        .cat-card:nth-child(2n) .cat-tag{transform:translateX(-50%) rotate(2deg);background:var(--coral);}
+        .cat-card:nth-child(3n) .cat-tag{background:var(--teal);}
+        .cat-icon{
+            width:64px;height:64px;display:flex;align-items:center;justify-content:center;
+            color:var(--ink);margin-bottom:1.4rem;
+        }
+        .cat-icon svg{width:100%;height:100%;}
+        .cat-card h3{
+            font-family:'Caprasimo',serif;font-weight:400;font-size:1.6rem;line-height:1.05;
+            margin-bottom:0.5rem;letter-spacing:-0.005em;
+        }
+        .cat-card p{
+            font-family:'Newsreader',serif;font-style:italic;font-size:0.98rem;line-height:1.6;color:var(--ink-2);
+            margin-bottom:1.2rem;
+        }
+        .cat-meta{
+            display:flex;justify-content:space-between;align-items:center;
+            padding-top:1rem;border-top:1px dashed var(--line-strong);
+            font-family:'DM Mono',monospace;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.14em;
+        }
+        .cat-meta .price{color:var(--ink);font-weight:500;}
+        .cat-meta .arr{color:var(--ink-mute);transition:transform 0.3s,color 0.3s;}
+        .cat-card:hover .cat-meta .arr{transform:translateX(3px);color:var(--coral);}
+
+        /* ========= GALLERY (BLUSH) ========= */
+        .gallery{border-top:1.5px solid var(--ink);background:var(--cream-2);}
+        .gal-head{display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:end;margin-bottom:3.5rem;}
+        .gal-grid{
+            display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:90px;gap:1.1rem;
+        }
+        .gal-cell{
+            position:relative;overflow:hidden;background:var(--cream);
+            border:6px solid var(--cream);box-shadow:0 8px 22px -10px rgba(35,26,20,0.3);
+            transition:transform 0.5s cubic-bezier(0.7,0,0.3,1),box-shadow 0.5s;
+        }
+        .gal-cell:hover{transform:translateY(-4px) rotate(-0.5deg);box-shadow:0 16px 32px -12px rgba(35,26,20,0.36);}
+        .gal-cell img{width:100%;height:100%;object-fit:cover;transition:transform 0.7s;}
+        .gal-cell:hover img{transform:scale(1.04);}
+        .gal-cell .tape{
+            position:absolute;top:-10px;left:50%;transform:translateX(-50%) rotate(-3deg);
+            width:74px;height:22px;background:rgba(219,168,148,0.7);
+            border:1px dashed rgba(35,26,20,0.25);z-index:2;
+        }
+        .gal-cell .label{
+            position:absolute;bottom:0.6rem;left:0.6rem;
+            font-family:'DM Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.16em;
+            color:var(--ink);background:var(--cream);padding:0.25rem 0.55rem;border-radius:3px;
+        }
+        .g1{grid-column:span 7;grid-row:span 4;}
+        .g2{grid-column:span 5;grid-row:span 2;}
+        .g3{grid-column:span 5;grid-row:span 2;}
+        .g4{grid-column:span 4;grid-row:span 3;}
+        .g5{grid-column:span 4;grid-row:span 3;}
+        .g6{grid-column:span 4;grid-row:span 3;}
+
+        /* ========= REVIEWS (TEAL) ========= */
+        .reviews{border-top:1.5px solid var(--ink);background:var(--cream);}
+        .rev-head{display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:end;margin-bottom:3.5rem;}
+        .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+        .rev-card{
+            position:relative;border:1.5px solid var(--ink);padding:2.6rem 1.8rem 1.8rem;
+            background:var(--cream-2);border-radius:4px;
+            transition:transform 0.4s,box-shadow 0.4s;
+            box-shadow:5px 5px 0 var(--teal);
+        }
+        .rev-card:nth-child(2){background:#dfe9e5;box-shadow:5px 5px 0 var(--coral);}
+        .rev-card:nth-child(3){box-shadow:5px 5px 0 var(--mustard);}
+        .rev-card:hover{transform:translate(-2px,-2px);}
+        .rev-card .qmark{
+            font-family:'Caprasimo',serif;font-size:5rem;color:var(--teal);
+            position:absolute;top:-0.4rem;left:1rem;line-height:1;opacity:0.85;
+        }
+        .rev-card:nth-child(2) .qmark{color:var(--coral);}
+        .rev-card:nth-child(3) .qmark{color:var(--mustard);}
+        .rev-stars{color:var(--mustard);font-size:0.95rem;letter-spacing:0.2em;margin-bottom:1.2rem;position:relative;z-index:1;}
+        .rev-text{font-family:'Newsreader',serif;font-size:1.05rem;line-height:1.7;color:var(--ink);margin-bottom:1.5rem;font-weight:500;font-style:italic;position:relative;z-index:1;}
+        .rev-foot{display:flex;justify-content:space-between;align-items:center;padding-top:1rem;border-top:1px dashed var(--line-strong);}
+        .rev-name{font-family:'Newsreader',serif;font-style:italic;font-weight:600;font-size:1.05rem;color:var(--ink);}
+        .rev-from{font-family:'DM Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.18em;color:var(--ink-mute);}
+
+        /* ========= VISIT US (MUSTARD) ========= */
+        .visit{border-top:1.5px solid var(--ink);background:var(--cream-2);}
+        .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3.5rem;}
+        .visit-cell{background:var(--cream);padding:3rem 2.5rem;border:1.5px solid var(--ink);border-radius:6px;box-shadow:5px 5px 0 var(--mustard);}
+        .visit-cell h3{
+            font-family:'Caprasimo',serif;font-weight:400;font-size:1.5rem;letter-spacing:-0.005em;
+            margin-bottom:1.6rem;display:flex;align-items:center;gap:0.7rem;
+        }
+        .visit-cell h3 svg{width:24px;height:24px;color:var(--mustard);}
+
+        .hours{display:flex;flex-direction:column;}
+        .hours-row{
+            display:flex;justify-content:space-between;align-items:baseline;
+            padding:0.95rem 0;border-bottom:1px dashed var(--line);
+        }
+        .hours-row:last-child{border-bottom:none;}
+        .hours-row.today{
+            background:rgba(207,155,58,0.13);margin:0 -0.8rem;padding:0.95rem 0.8rem;
+            border-radius:4px;border-bottom-color:transparent;position:relative;
+        }
+        .hours-row.today::before{
+            content:'today';font-family:'Caveat',cursive;color:var(--mustard);
+            font-size:1.1rem;position:absolute;left:-2.4rem;top:50%;transform:translateY(-50%) rotate(-12deg);font-weight:700;
+        }
+        .hours-row .day{font-family:'Newsreader',serif;font-size:1.05rem;font-weight:500;}
+        .hours-row .time{font-family:'DM Mono',monospace;font-size:0.85rem;color:var(--ink-2);letter-spacing:0.04em;}
+        .hours-row.today .day,.hours-row.today .time{color:var(--mustard);font-weight:600;}
+
+        .ct-info{display:flex;flex-direction:column;gap:0.4rem;}
+        .ct-row{display:flex;align-items:flex-start;gap:1.2rem;padding:1rem 0;border-bottom:1px dashed var(--line);}
+        .ct-row:last-child{border-bottom:none;}
+        .ct-ico{
+            width:42px;height:42px;border-radius:50%;
+            background:var(--cream-2);border:1.5px solid var(--ink);
+            display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--ink);
+        }
+        .ct-ico svg{width:18px;height:18px;}
+        .ct-lbl{font-family:'DM Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.2em;color:var(--ink-mute);margin-bottom:0.25rem;}
+        .ct-v{font-family:'Newsreader',serif;font-size:1.05rem;color:var(--ink);font-weight:500;line-height:1.5;}
+        .ct-v a{color:inherit;text-decoration:none;border-bottom:1.5px solid transparent;transition:border-color 0.3s,color 0.3s;}
+        .ct-v a:hover{border-bottom-color:var(--mustard);color:var(--mustard);}
+
+        .visit-extras{
+            margin-top:2rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem;
+        }
+        .extra-card{
+            background:var(--cream);padding:1.6rem;border:1.5px solid var(--ink);border-radius:6px;
+            display:flex;gap:0.9rem;align-items:flex-start;
+        }
+        .extra-card .ic{
+            width:40px;height:40px;flex-shrink:0;color:var(--coral);
+        }
+        .extra-card:nth-child(2) .ic{color:var(--teal);}
+        .extra-card .ic svg{width:100%;height:100%;}
+        .extra-card h4{
+            font-family:'Caprasimo',serif;font-weight:400;font-size:1.1rem;letter-spacing:-0.005em;
+            margin-bottom:0.3rem;line-height:1.1;
+        }
+        .extra-card p{font-family:'Newsreader',serif;font-style:italic;font-size:0.92rem;color:var(--ink-2);line-height:1.5;}
+
+        .map-box{margin-top:1.5rem;height:340px;overflow:hidden;border:1.5px solid var(--ink);border-radius:6px;position:relative;box-shadow:5px 5px 0 var(--coral);}
+        .map-box iframe{width:100%;height:100%;border:0;filter:saturate(0.85) contrast(0.92);}
+        .map-pin{
+            position:absolute;top:0.9rem;left:0.9rem;z-index:3;
+            background:var(--cream);border:1.5px solid var(--ink);padding:0.45rem 0.8rem;border-radius:100px;
+            font-family:'DM Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.18em;color:var(--ink);
+            box-shadow:3px 3px 0 var(--ink);
+        }
+        .map-pin .accent-coral{color:var(--coral);}
+
+        /* ========= BIG CTA (CORAL) ========= */
+        .cta-final{
+            padding:8rem 2.5rem;text-align:center;border-top:1.5px solid var(--ink);
+            position:relative;overflow:hidden;background:var(--coral);color:var(--cream);
+        }
+        .cta-final::before{
+            content:'';position:absolute;inset:0;
+            background-image:repeating-linear-gradient(45deg,transparent 0px,transparent 28px,rgba(251,245,233,0.06) 28px,rgba(251,245,233,0.06) 29px);
+            pointer-events:none;
+        }
+        .cta-final .container{position:relative;}
+        .cta-final .pre{
+            font-family:'Caveat',cursive;font-size:2rem;color:var(--cream);
+            display:inline-block;transform:rotate(-3deg);margin-bottom:0.7rem;font-weight:700;opacity:0.95;
+        }
+        .cta-final h2{
+            font-family:'Caprasimo',serif;font-weight:400;
+            font-size:clamp(2.8rem,7vw,5.6rem);line-height:0.95;letter-spacing:-0.02em;
+            margin-bottom:1.4rem;
+        }
+        .cta-final h2 em{font-family:'Newsreader',serif;font-style:italic;font-weight:500;color:var(--cream-3);}
+        .cta-final p{
+            font-family:'Newsreader',serif;font-style:italic;font-size:1.15rem;line-height:1.7;
+            max-width:540px;margin:0 auto 2.5rem;color:rgba(251,245,233,0.92);
+        }
+        .cta-final .btn-row{display:flex;gap:0.9rem;justify-content:center;flex-wrap:wrap;}
+        .cta-final .btn-solid{background:var(--cream);color:var(--coral);border-color:var(--cream);}
+        .cta-final .btn-solid:hover{background:var(--ink);color:var(--cream);border-color:var(--ink);box-shadow:none;}
+        .cta-final .btn-ghost{color:var(--cream);border-color:var(--cream);}
+        .cta-final .btn-ghost:hover{background:var(--cream);color:var(--coral);}
+
+        /* ========= FOOTER ========= */
+        footer{border-top:1.5px solid var(--ink);padding:3.2rem 2.5rem 1.8rem;background:var(--cream);}
+        .foot-top{
+            display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:3rem;
+            padding-bottom:2.4rem;border-bottom:1px dashed var(--line-strong);max-width:1240px;margin:0 auto;
+        }
+        .foot-brand{display:flex;flex-direction:column;gap:1rem;}
+        .foot-brand .lg{display:flex;align-items:center;gap:0.65rem;}
+        .foot-brand .lg svg{width:34px;height:34px;color:var(--coral);}
+        .foot-brand .lg .word{font-family:'Caprasimo',serif;font-size:1.35rem;letter-spacing:-0.005em;}
+        .foot-brand .lg .word em{font-family:'Caveat',cursive;font-style:normal;color:var(--coral);font-size:1.15em;display:inline-block;transform:translateY(0.04em) rotate(-4deg);margin-left:0.1em;}
+        .foot-brand p{color:var(--ink-2);font-size:0.95rem;line-height:1.65;font-style:italic;max-width:280px;}
+        .foot-col h4{font-family:'DM Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.22em;color:var(--coral);margin-bottom:1.1rem;}
+        .foot-col:nth-child(3) h4{color:var(--teal);}
+        .foot-col:nth-child(4) h4{color:var(--mustard);}
+        .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:0.55rem;}
+        .foot-col a{color:var(--ink-2);text-decoration:none;font-size:0.95rem;transition:color 0.3s;}
+        .foot-col a:hover{color:var(--ink);}
+        .foot-bot{
+            display:flex;justify-content:space-between;align-items:center;padding-top:1.4rem;
+            flex-wrap:wrap;gap:1rem;max-width:1240px;margin:0 auto;
+        }
+        .foot-bot .credit{font-family:'DM Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.18em;color:var(--ink-mute);}
+        .foot-bot .credit a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid transparent;transition:border-color 0.3s,color 0.3s;}
+        .foot-bot .credit a:hover{color:var(--coral);border-bottom-color:var(--coral);}
+        .foot-bot .stamp{font-family:'Caveat',cursive;color:var(--coral);font-size:1.5rem;font-weight:700;transform:rotate(-3deg);display:inline-block;}
+
+        /* ========= REVEAL ========= */
+        .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1);}
         .reveal.visible{opacity:1;transform:translateY(0);}
-        .reveal-d1{transition-delay:0.1s;}.reveal-d2{transition-delay:0.2s;}.reveal-d3{transition-delay:0.3s;}
+        .d1{transition-delay:0.08s;}.d2{transition-delay:0.16s;}.d3{transition-delay:0.24s;}.d4{transition-delay:0.32s;}.d5{transition-delay:0.4s;}
 
-        @media(max-width:768px){
-            .nav-links{display:none;}.menu-toggle{display:flex;}
-            .nav-links.open{display:flex;flex-direction:column;position:absolute;top:calc(100%+1px);left:1rem;right:1rem;background:rgba(245,240,235,0.97);backdrop-filter:blur(20px);padding:1rem;border-radius:16px;border:1px solid var(--border);gap:0.5rem;}
-            nav{padding:0 1.5rem;}
-            .hero{grid-template-columns:1fr;padding:7rem 1.5rem 3rem;gap:2rem;}
-            .hero-img{aspect-ratio:3/2;}
-            .stats-band{grid-template-columns:repeat(3,1fr);}
-            .stat-box{border-bottom:1px solid rgba(255,255,255,0.08);}
-            .about-flex,.contact-duo{grid-template-columns:1fr;}
-            .hero-btns{flex-direction:column;}
-            section{padding:4rem 1.5rem;}
-            .cta-warm{margin:0 1rem;border-radius:16px;}
+        /* ========= MEDIA ========= */
+        @media(max-width:980px){
+            .nav-links{display:none;}
+            .nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:1rem;right:1rem;background:rgba(251,245,233,0.97);backdrop-filter:blur(20px);padding:1.2rem;gap:1rem;border:1.5px solid var(--ink);border-radius:8px;}
+            .menu-toggle{display:flex;}
+            nav{padding:0.85rem 1.5rem;}
+            nav.scrolled{padding:0.65rem 1.5rem;}
+            section{padding:5rem 1.5rem;}
+            .hero{padding:7rem 1.5rem 0;}
+            .hero-stamp{width:90px;height:90px;font-size:0.55rem;top:5rem;}
+            .hero-ribbon{width:140px;top:5rem;right:-1rem;}
+            .hero h1 .row.indent{padding-left:0;}
+            .hero-bottom{grid-template-columns:1fr;gap:1.8rem;padding-bottom:3rem;}
+            .hero-icon{justify-self:start;}
+            .hero-btns{justify-self:start;}
+            .about-grid,.cat-head,.gal-head,.rev-head,.visit-grid,.foot-top{grid-template-columns:1fr;gap:2.5rem;}
+            .about-img{transform:rotate(0deg);}
+            .strip{grid-template-columns:repeat(2,1fr);}
+            .strip-cell{border-right:none;border-bottom:1px dashed var(--line-strong);}
+            .strip-cell:nth-child(odd){border-right:1px dashed var(--line-strong);}
+            .strip-cell:nth-last-child(-n+2){border-bottom:none;}
+            .cat-grid{grid-template-columns:1fr;}
+            .gal-grid{grid-template-columns:repeat(6,1fr);grid-auto-rows:80px;}
+            .g1{grid-column:span 6;grid-row:span 3;}
+            .g2,.g3{grid-column:span 6;grid-row:span 2;}
+            .g4,.g5,.g6{grid-column:span 6;grid-row:span 3;}
+            .rev-grid{grid-template-columns:1fr;}
+            .visit-extras{grid-template-columns:1fr;}
+            .marquee-item{font-size:1.25rem;}
+            .marquee-item.italic{font-size:1.15rem;}
+            .marquee-item.hand{font-size:1.6rem;}
+            .hero-meta{flex-direction:column;gap:0.6rem;}
+            .hours-row.today::before{display:none;}
+            .hours-row.today{margin:0;padding:0.95rem 0.6rem;}
+            .foot-bot{justify-content:flex-start;}
         }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="#" class="nav-logo">Expressions <span>&#9825;</span></a>
+
+    <!-- ===== NAV ===== -->
+    <nav id="nav">
+        <a href="#" class="nav-logo" aria-label="Expressions home">
+            <!-- gift tag logo -->
+            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
+                <path d="M14 4 L34 4 L34 24 L22 36 L4 18 Z" fill="#fbf5e9"/>
+                <circle cx="11" cy="11" r="2.4" fill="#e8806a" stroke="none"/>
+                <path d="M11 11 L4 4" stroke="#231a14" stroke-width="1.6"/>
+            </svg>
+            <span class="word">Expressions<em>&amp;</em></span>
+        </a>
         <ul class="nav-links" id="navLinks">
             <li><a href="#about">About</a></li>
-            <li><a href="#services">Products</a></li>
-            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#categories">Shop</a></li>
+            <li><a href="#gallery">Inside</a></li>
             <li><a href="#reviews">Reviews</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#visit">Visit</a></li>
         </ul>
-        <a href="tel:07824555576" class="nav-cta">Visit Us</a>
+        <a href="#visit" class="nav-cta">Visit Us <span class="arr">&rarr;</span></a>
         <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">&#9776;</button>
     </nav>
 
+    <!-- ===== HERO ===== -->
     <section class="hero">
-        <div class="hero-text">
-            <div class="hero-chip reveal">&#9825; Independent &mdash; Desborough High Street</div>
-            <h1 class="reveal reveal-d1">Expressions <span>Card Shop</span></h1>
-            <p class="reveal reveal-d2">Your friendly independent card and gift shop in the heart of Desborough. Cards, gifts, wrapping and so much more.</p>
-            <div class="hero-btns reveal reveal-d3">
-                <a href="tel:07824555576" class="btn-dark">Visit Us Today &rarr;</a>
-                <a href="#services" class="btn-warm">What We Offer</a>
-            </div>
+        <!-- ribbon -->
+        <svg class="hero-ribbon" viewBox="0 0 240 80" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+            <path d="M6 40 C 36 10, 70 70, 100 40 S 168 10, 198 40 S 234 70, 240 40" />
+            <path d="M194 32 L210 24 L210 36 Z" fill="currentColor"/>
+        </svg>
+        <!-- stamp -->
+        <div class="hero-stamp" aria-hidden="true">
+            Est. on the<br>High Street<br>Desborough &middot; NN14
         </div>
-        <div class="hero-img reveal reveal-d2">
-            <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=800" alt="Expressions Card Shop">
+
+        <div class="hero-meta">
+            <div class="ml"><span>&bull; Open today</span><span>62 Station Rd &middot; Desborough</span></div>
+            <div class="ml"><span>NN14 2RS</span><span>Independent &middot; Local</span></div>
+        </div>
+
+        <div class="hero-content">
+            <p class="hero-tag reveal">a little card &amp; gift shop with a lot of love</p>
+            <h1>
+                <span class="row reveal d1"><em>Cards,</em> gifts</span>
+                <span class="row indent reveal d2">&amp; <span class="underline-mark">everything</span></span>
+                <span class="row reveal d3">in <span class="swirl">between.</span></span>
+            </h1>
+
+            <div class="hero-bottom">
+                <p class="hero-lede reveal d4">An independent card &amp; gift shop on Station Road, hand-picked &amp; locally loved. Pop in for the perfect card, beautiful wrap, or that little something you didn't know you needed.</p>
+                <div class="hero-icon reveal d4" aria-hidden="true">
+                    <!-- envelope w/ heart sticker -->
+                    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+                        <rect x="6" y="14" width="52" height="36" rx="2"/>
+                        <path d="M6 14 L32 34 L58 14"/>
+                        <path d="M44 8 C 44 5, 48 5, 48 8 C 48 5, 52 5, 52 8 C 52 11, 48 14, 48 14 C 48 14, 44 11, 44 8 Z" fill="currentColor" stroke="none"/>
+                    </svg>
+                </div>
+                <div class="hero-btns reveal d5">
+                    <a href="#visit" class="btn btn-solid">Pop in &amp; visit <span class="arr">&rarr;</span></a>
+                    <a href="#categories" class="btn btn-ghost">What we stock</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <div class="stats-band">
-        <div class="stat-box"><div class="stat-n">Independent</div><div class="stat-l">Local Shop</div></div>
-        <div class="stat-box"><div class="stat-n">Desborough</div><div class="stat-l">Station Road</div></div>
-        <div class="stat-box"><div class="stat-n">&#9825;</div><div class="stat-l">Community Loved</div></div>
+    <!-- ===== MARQUEE ===== -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+            <span class="marquee-item">Greeting Cards <span class="dot">&#10042;</span></span>
+            <span class="marquee-item italic">&mdash; gift wrap &amp; bags &mdash;</span>
+            <span class="marquee-item hand">balloons!</span>
+            <span class="marquee-item">Personalised <span class="dot">&#10042;</span></span>
+            <span class="marquee-item italic">&mdash; party supplies &mdash;</span>
+            <span class="marquee-item hand">with love</span>
+            <span class="marquee-item">Station Road <span class="dot">&#10042;</span></span>
+            <span class="marquee-item italic">&mdash; independent &amp; local &mdash;</span>
+            <span class="marquee-item">Greeting Cards <span class="dot">&#10042;</span></span>
+            <span class="marquee-item italic">&mdash; gift wrap &amp; bags &mdash;</span>
+            <span class="marquee-item hand">balloons!</span>
+            <span class="marquee-item">Personalised <span class="dot">&#10042;</span></span>
+            <span class="marquee-item italic">&mdash; party supplies &mdash;</span>
+            <span class="marquee-item hand">with love</span>
+            <span class="marquee-item">Station Road <span class="dot">&#10042;</span></span>
+            <span class="marquee-item italic">&mdash; independent &amp; local &mdash;</span>
+        </div>
     </div>
 
-    <section id="about">
+    <!-- ===== ABOUT ===== -->
+    <section class="about sec-teal" id="about">
         <div class="container">
-            <div class="sec-tag reveal">About Us</div>
-            <div class="about-flex">
-                <div class="about-photo reveal">
-                    <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=800" alt="Expressions Card Shop" loading="lazy">
-                </div>
-                <div class="about-copy reveal reveal-d1">
-                    <h3>Your Friendly Local Card Shop</h3>
-                    <p>Expressions is an independent card and gift shop on Station Road in Desborough. We stock a wonderful range of greeting cards for every occasion, gift wrapping, party supplies, balloons, and personalised items.</p>
-                    <p>Loved by the local community, we take pride in offering a personal, friendly service with a selection you won't find in the big chains.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            <div class="sec-num accent-teal reveal">01 &mdash; The Shop</div>
+            <h2 class="sec-title reveal d1">A little corner of <em>the high street,</em><br>full of <span class="hand accent-teal">good stuff.</span></h2>
 
-    <section id="services">
-        <div class="container">
-            <div class="sec-tag reveal">What We Offer</div>
-            <h2 class="sec-title reveal reveal-d1">Our Products</h2>
-            <p class="sec-sub reveal reveal-d2">Cards, gifts, and so much more.</p>
-            <div class="menu-grid reveal reveal-d3">
-                <div class="menu-card">
-                    <div class="menu-emoji">&#127872;</div>
-                    <div><h3>Greeting Cards</h3><p>Beautiful cards for every occasion</p><span class="menu-price">from &pound;2</span></div>
+            <div class="about-grid">
+                <div class="about-img-wrap reveal d2">
+                    <span class="about-tag">since for ages!</span>
+                    <div class="about-img">
+                        <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=1200&q=85" alt="Inside Expressions card &amp; gift shop" loading="lazy">
+                    </div>
+                    <div class="about-stamp-2">Hand<br>Picked<br>&middot; with care &middot;</div>
                 </div>
-                <div class="menu-card">
-                    <div class="menu-emoji">&#127873;</div>
-                    <div><h3>Gift Wrapping</h3><p>Professional wrapping service</p><span class="menu-price">&pound;2</span></div>
-                </div>
-                <div class="menu-card">
-                    <div class="menu-emoji">&#127881;</div>
-                    <div><h3>Party Supplies</h3><p>Everything for your celebration</p><span class="menu-price">Various</span></div>
-                </div>
-                <div class="menu-card">
-                    <div class="menu-emoji">&#9993;</div>
-                    <div><h3>Personalised Cards</h3><p>Bespoke cards made with care</p><span class="menu-price">from &pound;5</span></div>
-                </div>
-                <div class="menu-card">
-                    <div class="menu-emoji">&#127890;</div>
-                    <div><h3>Gift Bags</h3><p>Range of sizes and styles</p><span class="menu-price">from &pound;1.50</span></div>
-                </div>
-                <div class="menu-card">
-                    <div class="menu-emoji">&#127880;</div>
-                    <div><h3>Balloons</h3><p>Balloons for all occasions</p><span class="menu-price">from &pound;3</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="gallery">
-        <div class="container">
-            <div class="sec-tag reveal">Gallery</div>
-            <h2 class="sec-title reveal reveal-d1">A Peek Inside</h2>
-            <div class="photo-grid reveal reveal-d2">
-                <div class="photo-cell"><img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=800" alt="Cards display" loading="lazy"></div>
-                <div class="photo-cell"><img src="https://images.unsplash.com/photo-1549465220-1a8b9238f939?w=800" alt="Gift wrapping" loading="lazy"></div>
-                <div class="photo-cell"><img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=800" alt="Greeting cards" loading="lazy"></div>
-                <div class="photo-cell"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800" alt="Party supplies" loading="lazy"></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="reviews">
-        <div class="container">
-            <div class="sec-tag reveal">Testimonials</div>
-            <h2 class="sec-title reveal reveal-d1">What Our Customers Say</h2>
-            <div class="rev-grid reveal reveal-d2">
-                <div class="rev-card">
-                    <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <div class="rev-text">Best card selection anywhere. Every occasion covered and then some. I never need to go anywhere else!</div>
-                    <div class="rev-row"><div class="rev-ava">DS</div><div><div class="rev-name">Delighted Shopper</div><div class="rev-from">Google Review</div></div></div>
-                </div>
-                <div class="rev-card">
-                    <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <div class="rev-text">The gift wrapping is gorgeous. They take such care with every package. It's the finishing touch that makes the gift special.</div>
-                    <div class="rev-row"><div class="rev-ava">RC</div><div><div class="rev-name">Regular Customer</div><div class="rev-from">Google Review</div></div></div>
-                </div>
-                <div class="rev-card">
-                    <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <div class="rev-text">Always find the perfect card here. The staff are so helpful and the range is incredible for a local shop.</div>
-                    <div class="rev-row"><div class="rev-ava">HL</div><div><div class="rev-name">Happy Local</div><div class="rev-from">Google Review</div></div></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container">
-            <div class="sec-tag reveal">Get In Touch</div>
-            <h2 class="sec-title reveal reveal-d1">Contact &amp; Hours</h2>
-            <div class="contact-duo reveal reveal-d2">
-                <div class="contact-box">
-                    <h3>Opening Hours</h3>
-                    <table class="h-tbl">
-                        <tr><td>Monday &ndash; Saturday</td><td>9:00 &ndash; 17:00</td></tr>
-                        <tr><td>Sunday</td><td>Closed</td></tr>
-                    </table>
-                </div>
-                <div class="contact-box">
-                    <h3>Find Us</h3>
-                    <div class="ct-list">
-                        <div class="ct-item"><div class="ct-ico">&#128205;</div><div><div class="ct-lbl">Address</div><div class="ct-val">62 Station Road, Desborough, Kettering NN14 2RS</div></div></div>
-                        <div class="ct-item"><div class="ct-ico">&#128222;</div><div><div class="ct-lbl">Phone</div><div class="ct-val"><a href="tel:07824555576">07824 555576</a></div></div></div>
-                        <div class="ct-item"><div class="ct-ico">&#9993;</div><div><div class="ct-lbl">Email</div><div class="ct-val"><a href="mailto:expressions_of_desborough@yahoo.co.uk">expressions_of_desborough@yahoo.co.uk</a></div></div></div>
+                <div class="about-copy">
+                    <blockquote class="about-quote reveal d3">
+                        <span class="hand">&ldquo;</span>We're not a chain, we're a corner shop with proper character &mdash; cards you'd actually want to send and gifts that don't end up in the back of a drawer.
+                    </blockquote>
+                    <p class="about-text reveal d4">Expressions is Desborough's friendly independent card &amp; gift shop, sat right on Station Road. We stock a beautifully curated range of greeting cards for every occasion, plus gift wrapping, balloons, party bits and personalised pieces you genuinely won't find in the big chains.</p>
+                    <p class="about-text reveal d4">Loved by the community for as long as we've been here. Pop in, take your time, browse properly &mdash; we'll help you find exactly the right thing, even if you've forgotten the date.</p>
+                    <div class="about-sign reveal d5">
+                        <span class="sig">&mdash; with love, the team x</span>
+                        <span class="role">Station Rd, Desborough</span>
                     </div>
                 </div>
             </div>
-            <div class="map-card reveal reveal-d3">
-                <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Expressions+Card+Shop+62+Station+Road+Desborough" allowfullscreen loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- ===== STATS STRIP ===== -->
+    <div class="strip">
+        <div class="strip-cell reveal"><span class="idx">/01</span><div class="k"><em>6+</em></div><div class="l">Card &amp; Gift Categories</div></div>
+        <div class="strip-cell reveal d1"><span class="idx">/02</span><div class="k">Hand<em>-picked</em></div><div class="l">Curated Selection</div></div>
+        <div class="strip-cell reveal d2"><span class="idx">/03</span><div class="k">6<em>/</em>7</div><div class="l">Days A Week</div></div>
+        <div class="strip-cell reveal d3"><span class="idx">/04</span><div class="k">100<em>%</em></div><div class="l">Independent &amp; Local</div></div>
+    </div>
+
+    <!-- ===== CATEGORIES ===== -->
+    <section class="categories sec-mustard" id="categories">
+        <div class="container">
+            <div class="sec-num accent-mustard reveal">02 &mdash; What We Stock</div>
+            <div class="cat-head">
+                <h2 class="sec-title reveal d1">Every <em>occasion,</em><br>covered &middot; with <span class="hand accent-mustard">a smile.</span></h2>
+                <p class="sec-desc reveal d2">From the perfect birthday card to a beautifully wrapped gift &mdash; we've got the lot. Grouped, sorted, and hand-picked so you find what you're after without the faff.</p>
+            </div>
+
+            <div class="cat-grid">
+                <a href="#visit" class="cat-card reveal">
+                    <span class="cat-tag">Card &middot; 01</span>
+                    <div>
+                        <div class="cat-icon">
+                            <!-- card icon -->
+                            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+                                <rect x="10" y="8" width="44" height="48" rx="2" fill="#fbf5e9"/>
+                                <path d="M20 22 L44 22 M20 30 L40 30 M20 38 L36 38"/>
+                                <path d="M32 50 C 30 47, 28 47, 28 49 C 28 51, 32 53, 32 53 C 32 53, 36 51, 36 49 C 36 47, 34 47, 32 50 Z" fill="#e8806a" stroke="none"/>
+                            </svg>
+                        </div>
+                        <h3>Greeting Cards</h3>
+                        <p>Beautiful cards for every occasion &mdash; birthday, wedding, sympathy, new home &amp; the rest.</p>
+                    </div>
+                    <div class="cat-meta"><span class="price">from &pound;2</span><span class="arr">&rarr;</span></div>
+                </a>
+
+                <a href="mailto:expressions_of_desborough@yahoo.co.uk?subject=Personalised%20card%20enquiry" class="cat-card reveal d1">
+                    <span class="cat-tag">Bespoke &middot; 02</span>
+                    <div>
+                        <div class="cat-icon">
+                            <!-- envelope w stamp -->
+                            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+                                <rect x="6" y="16" width="52" height="36" rx="2" fill="#fbf5e9"/>
+                                <path d="M6 16 L32 36 L58 16"/>
+                                <rect x="44" y="6" width="14" height="14" fill="#cf9b3a" stroke="#231a14" stroke-dasharray="2 1.5"/>
+                                <path d="M48 10 L54 16 M54 10 L48 16" stroke="#231a14"/>
+                            </svg>
+                        </div>
+                        <h3>Personalised Cards</h3>
+                        <p>Bespoke cards made with care &mdash; names, dates, photos, the works. Just ask in store.</p>
+                    </div>
+                    <div class="cat-meta"><span class="price">from &pound;5</span><span class="arr">&rarr;</span></div>
+                </a>
+
+                <a href="#visit" class="cat-card reveal d2">
+                    <span class="cat-tag">Wrap &middot; 03</span>
+                    <div>
+                        <div class="cat-icon">
+                            <!-- wrapped gift -->
+                            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+                                <rect x="8" y="22" width="48" height="34" rx="1" fill="#fbf5e9"/>
+                                <path d="M8 32 L56 32"/>
+                                <path d="M32 22 L32 56"/>
+                                <path d="M32 22 C 22 22, 18 12, 24 10 C 30 8, 32 22, 32 22 C 32 22, 34 8, 40 10 C 46 12, 42 22, 32 22 Z" fill="#5a8b88" stroke="#231a14"/>
+                            </svg>
+                        </div>
+                        <h3>Gift Wrapping</h3>
+                        <p>In-store wrapping that turns any present into a proper occasion. Ribbon &amp; tag included.</p>
+                    </div>
+                    <div class="cat-meta"><span class="price">&pound;2 / item</span><span class="arr">&rarr;</span></div>
+                </a>
+
+                <a href="#visit" class="cat-card reveal d3">
+                    <span class="cat-tag">Party &middot; 04</span>
+                    <div>
+                        <div class="cat-icon">
+                            <!-- party hat -->
+                            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+                                <path d="M32 8 L48 50 L16 50 Z" fill="#fbf5e9"/>
+                                <path d="M22 28 L42 28 M20 38 L44 38" stroke-dasharray="3 2"/>
+                                <circle cx="32" cy="8" r="3" fill="#e8806a" stroke="none"/>
+                                <path d="M14 54 L50 54" stroke-width="2.4"/>
+                            </svg>
+                        </div>
+                        <h3>Party Supplies</h3>
+                        <p>Everything for the big day &mdash; banners, candles, plates, napkins &amp; the lot. Themes covered.</p>
+                    </div>
+                    <div class="cat-meta"><span class="price">various</span><span class="arr">&rarr;</span></div>
+                </a>
+
+                <a href="#visit" class="cat-card reveal d4">
+                    <span class="cat-tag">Bags &middot; 05</span>
+                    <div>
+                        <div class="cat-icon">
+                            <!-- gift bag -->
+                            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+                                <path d="M14 22 L50 22 L46 56 L18 56 Z" fill="#fbf5e9"/>
+                                <path d="M22 22 C 22 12, 30 8, 32 14 C 34 8, 42 12, 42 22" />
+                                <path d="M18 30 L46 30" stroke-dasharray="3 2"/>
+                            </svg>
+                        </div>
+                        <h3>Gift Bags</h3>
+                        <p>Range of sizes &amp; styles &mdash; matte, glossy, pattern, plain. Tissue paper as standard.</p>
+                    </div>
+                    <div class="cat-meta"><span class="price">from &pound;1.50</span><span class="arr">&rarr;</span></div>
+                </a>
+
+                <a href="#visit" class="cat-card reveal d5">
+                    <span class="cat-tag">Floats &middot; 06</span>
+                    <div>
+                        <div class="cat-icon">
+                            <!-- balloons -->
+                            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+                                <ellipse cx="22" cy="22" rx="11" ry="13" fill="#e8806a" stroke="#231a14"/>
+                                <ellipse cx="42" cy="26" rx="10" ry="12" fill="#5a8b88" stroke="#231a14"/>
+                                <path d="M22 35 C 20 44, 26 48, 24 56 M42 38 C 44 46, 38 50, 40 58"/>
+                            </svg>
+                        </div>
+                        <h3>Balloons</h3>
+                        <p>Foil, latex, helium, numbers &amp; bouquets &mdash; for birthdays, anniversaries, big surprises.</p>
+                    </div>
+                    <div class="cat-meta"><span class="price">from &pound;3</span><span class="arr">&rarr;</span></div>
+                </a>
+            </div>
+
+            <p class="cat-foot reveal">In-store only &middot; <span class="accent-mustard">prices &amp; ranges shown are a guide</span> &middot; pop in for the full picture</p>
+        </div>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section class="gallery sec-blush" id="gallery">
+        <div class="container">
+            <div class="sec-num accent-blush reveal">03 &mdash; A Peek Inside</div>
+            <div class="gal-head">
+                <h2 class="sec-title reveal d1">From <em>our</em><br><span class="hand accent-blush">window</span> to yours.</h2>
+                <p class="sec-desc reveal d2">A scrapbook of what's on the shelves &mdash; curated displays, wrap-ups in progress, &amp; the little details we put together every week. <em>Real shop, real shelves.</em></p>
+            </div>
+
+            <div class="gal-grid">
+                <div class="gal-cell g1 reveal"><span class="tape"></span><img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=1400&q=85" alt="Greeting cards display" loading="lazy"><span class="label">Cards &middot; window</span></div>
+                <div class="gal-cell g2 reveal d1"><span class="tape"></span><img src="https://images.unsplash.com/photo-1549465220-1a8b9238f939?w=900&q=85" alt="Gift wrapping in progress" loading="lazy"><span class="label">Wrap bench</span></div>
+                <div class="gal-cell g3 reveal d2"><span class="tape"></span><img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=900&q=85" alt="Party supplies and candles" loading="lazy"><span class="label">Party &middot; bits</span></div>
+                <div class="gal-cell g4 reveal d3"><span class="tape"></span><img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=900&q=85" alt="Stationery details" loading="lazy"><span class="label">Stationery</span></div>
+                <div class="gal-cell g5 reveal d4"><span class="tape"></span><img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=900&q=85" alt="Inside the shop" loading="lazy"><span class="label">In store</span></div>
+                <div class="gal-cell g6 reveal d5"><span class="tape"></span><img src="https://images.unsplash.com/photo-1542223616-740d5dff7f56?w=900&q=85" alt="Small gifts &amp; trinkets" loading="lazy"><span class="label">Trinkets</span></div>
             </div>
         </div>
     </section>
 
-    <div class="cta-warm">
-        <h2 class="reveal">Need the Perfect Card?</h2>
-        <p class="reveal reveal-d1">Pop into Expressions on Station Road, Desborough. We have cards and gifts for every occasion.</p>
-        <a href="tel:07824555576" class="btn-dark reveal reveal-d2">Visit Us Today &rarr;</a>
-    </div>
+    <!-- ===== REVIEWS ===== -->
+    <section class="reviews sec-teal" id="reviews">
+        <div class="container">
+            <div class="sec-num accent-teal reveal">04 &mdash; Word On The Street</div>
+            <div class="rev-head">
+                <h2 class="sec-title reveal d1">What the <em>regulars</em><br><span class="hand accent-teal">have said.</span></h2>
+                <p class="sec-desc reveal d2">Real customers, real cards, real reviews &mdash; the kind of feedback that makes opening up on a Monday morning worth it.</p>
+            </div>
 
+            <div class="rev-grid">
+                <div class="rev-card reveal d2">
+                    <span class="qmark">&ldquo;</span>
+                    <div class="rev-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+                    <p class="rev-text">Best card selection anywhere. Every occasion covered and then some &mdash; I never need to go anywhere else!</p>
+                    <div class="rev-foot"><span class="rev-name">A Delighted Shopper</span><span class="rev-from">Google &middot; 5&#9733;</span></div>
+                </div>
+                <div class="rev-card reveal d3">
+                    <span class="qmark">&ldquo;</span>
+                    <div class="rev-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+                    <p class="rev-text">The gift wrapping is gorgeous. They take such care with every package &mdash; it's the finishing touch that makes the gift feel special.</p>
+                    <div class="rev-foot"><span class="rev-name">A Regular Customer</span><span class="rev-from">Google &middot; 5&#9733;</span></div>
+                </div>
+                <div class="rev-card reveal d4">
+                    <span class="qmark">&ldquo;</span>
+                    <div class="rev-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+                    <p class="rev-text">Always find the perfect card here. The staff are so helpful and the range is incredible for a local shop.</p>
+                    <div class="rev-foot"><span class="rev-name">A Happy Local</span><span class="rev-from">Google &middot; 5&#9733;</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== VISIT US ===== -->
+    <section class="visit sec-mustard" id="visit">
+        <div class="container">
+            <div class="sec-num accent-mustard reveal">05 &mdash; Visit Us</div>
+            <div class="rev-head">
+                <h2 class="sec-title reveal d1">Pop in. <em>Have a look.</em><br><span class="hand accent-mustard">we'll be here.</span></h2>
+                <p class="sec-desc reveal d2">Right on Station Road in the heart of Desborough &mdash; just a few doors down from the high street's best browsing. Free street parking close by.</p>
+            </div>
+
+            <div class="visit-grid">
+                <div class="visit-cell reveal d2">
+                    <h3>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7 V12 L15.5 14"/></svg>
+                        Opening Hours
+                    </h3>
+                    <div class="hours">
+                        <div class="hours-row" data-day="1"><span class="day">Monday</span><span class="time">9:00 &mdash; 17:00</span></div>
+                        <div class="hours-row" data-day="2"><span class="day">Tuesday</span><span class="time">9:00 &mdash; 17:00</span></div>
+                        <div class="hours-row" data-day="3"><span class="day">Wednesday</span><span class="time">9:00 &mdash; 17:00</span></div>
+                        <div class="hours-row" data-day="4"><span class="day">Thursday</span><span class="time">9:00 &mdash; 17:00</span></div>
+                        <div class="hours-row" data-day="5"><span class="day">Friday</span><span class="time">9:00 &mdash; 17:00</span></div>
+                        <div class="hours-row" data-day="6"><span class="day">Saturday</span><span class="time">9:00 &mdash; 17:00</span></div>
+                        <div class="hours-row" data-day="0"><span class="day">Sunday</span><span class="time">Closed</span></div>
+                    </div>
+                </div>
+
+                <div class="visit-cell reveal d3">
+                    <h3>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 C 7 2, 4 5.5, 4 10 C 4 16, 12 22, 12 22 S 20 16, 20 10 C 20 5.5, 17 2, 12 2 Z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Find Us
+                    </h3>
+                    <div class="ct-info">
+                        <div class="ct-row">
+                            <div class="ct-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 2 C 7 2, 4 5.5, 4 10 C 4 16, 12 22, 12 22 S 20 16, 20 10 C 20 5.5, 17 2, 12 2 Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+                            <div><div class="ct-lbl">Address</div><div class="ct-v">62 Station Road, Desborough,<br>Kettering &middot; NN14 2RS</div></div>
+                        </div>
+                        <div class="ct-row">
+                            <div class="ct-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M3 5 C 3 14, 10 21, 19 21 L 21 18 L 17 16 L 15 18 C 12 17, 9 14, 8 11 L 10 9 L 8 5 L 4 5 Z"/></svg></div>
+                            <div><div class="ct-lbl">Phone</div><div class="ct-v"><a href="tel:07824555576">07824 555576</a></div></div>
+                        </div>
+                        <div class="ct-row">
+                            <div class="ct-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3 6 L12 13 L21 6"/></svg></div>
+                            <div><div class="ct-lbl">Email</div><div class="ct-v"><a href="mailto:expressions_of_desborough@yahoo.co.uk">expressions_of_desborough@yahoo.co.uk</a></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visit-extras">
+                <div class="extra-card reveal d3">
+                    <div class="ic">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="14" width="32" height="22" rx="2"/><circle cx="16" cy="38" r="3" fill="currentColor" stroke="none"/><circle cx="32" cy="38" r="3" fill="currentColor" stroke="none"/><path d="M14 14 L18 8 L30 8 L34 14"/></svg>
+                    </div>
+                    <div>
+                        <h4>Parking</h4>
+                        <p>Free street parking on Station Road &amp; the surrounding streets. Town centre car parks a short walk away.</p>
+                    </div>
+                </div>
+                <div class="extra-card reveal d4">
+                    <div class="ic">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="12" width="36" height="28" rx="2"/><path d="M16 6 L16 16 M32 6 L32 16 M6 22 L42 22"/><circle cx="24" cy="30" r="3" fill="currentColor" stroke="none"/></svg>
+                    </div>
+                    <div>
+                        <h4>Seasonal &amp; Personalised</h4>
+                        <p>Forgotten an occasion? We restock for every season &mdash; Christmas, Mother's Day, Easter &amp; more. Personalised cards by request: <a href="mailto:expressions_of_desborough@yahoo.co.uk?subject=Personalised%20card%20enquiry" style="border-bottom:1.5px solid var(--mustard);">drop us an email</a>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-box reveal d4">
+                <span class="map-pin"><span class="accent-coral">&bull;</span> Station Road &middot; NN14 2RS</span>
+                <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Expressions+Card+Shop+62+Station+Road+Desborough+NN14+2RS" allowfullscreen loading="lazy" title="Expressions Card Shop on the map"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-final">
+        <div class="container">
+            <span class="pre reveal">go on then &mdash;</span>
+            <h2 class="reveal d1">Pop in &amp; <em>have</em><br>a proper look.</h2>
+            <p class="reveal d2">A friendly hello, a beautifully wrapped gift, and the perfect card &mdash; all on the high street, all under one roof. We'll see you soon.</p>
+            <div class="btn-row reveal d3">
+                <a href="https://maps.google.com/?q=62+Station+Road+Desborough+NN14+2RS" target="_blank" rel="noopener" class="btn btn-solid">Get directions <span class="arr">&rarr;</span></a>
+                <a href="tel:07824555576" class="btn btn-ghost">Call 07824 555576</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
     <footer>
-        <div class="foot-inner">
-            <span class="foot-logo">Expressions Card Shop</span>
-            <div class="foot-links"><a href="#about">About</a><a href="#services">Products</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></div>
-            <span class="foot-credit">Built by <a href="https://twix.tf" target="_blank">Harry</a></span>
+        <div class="foot-top">
+            <div class="foot-brand">
+                <div class="lg">
+                    <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
+                        <path d="M14 4 L34 4 L34 24 L22 36 L4 18 Z" fill="#fbf5e9"/>
+                        <circle cx="11" cy="11" r="2.4" fill="currentColor" stroke="none"/>
+                        <path d="M11 11 L4 4" stroke="#231a14" stroke-width="1.6"/>
+                    </svg>
+                    <span class="word">Expressions<em>&amp;</em></span>
+                </div>
+                <p>Desborough's friendly independent card &amp; gift shop on Station Road. Hand-picked cards, gifts, wrap &amp; balloons since for ages.</p>
+            </div>
+            <div class="foot-col">
+                <h4>The Shop</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#categories">What We Stock</a></li>
+                    <li><a href="#gallery">Inside The Shop</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                </ul>
+            </div>
+            <div class="foot-col">
+                <h4>Visit</h4>
+                <ul>
+                    <li><a href="#visit">Hours</a></li>
+                    <li><a href="https://maps.google.com/?q=62+Station+Road+Desborough+NN14+2RS" target="_blank" rel="noopener">Directions</a></li>
+                    <li><a href="tel:07824555576">07824 555576</a></li>
+                    <li><a href="mailto:expressions_of_desborough@yahoo.co.uk">Email Us</a></li>
+                </ul>
+            </div>
+            <div class="foot-col">
+                <h4>Bespoke</h4>
+                <ul>
+                    <li><a href="mailto:expressions_of_desborough@yahoo.co.uk?subject=Personalised%20card%20enquiry">Personalised Cards</a></li>
+                    <li><a href="#visit">Gift Wrapping</a></li>
+                    <li><a href="#categories">Balloons</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="foot-bot">
+            <span class="credit">&copy; Expressions &middot; 62 Station Rd, Desborough &middot; NN14 2RS</span>
+            <span class="stamp">made with love x</span>
+            <span class="credit">Site by <a href="https://twix.tf" target="_blank" rel="noopener">Harry / twix.tf</a></span>
         </div>
     </footer>
 
     <script>
-        const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
-        document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-        document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t){t.scrollIntoView({behavior:'smooth'});document.getElementById('navLinks').classList.remove('open');}});});
+        // Nav scroll state
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 40);
+        }, { passive: true });
+
+        // Reveal on scroll
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    obs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+        // Smooth scroll + close menu
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                const t = document.querySelector(href);
+                if (t) {
+                    e.preventDefault();
+                    t.scrollIntoView({ behavior: 'smooth' });
+                    document.getElementById('navLinks').classList.remove('open');
+                }
+            });
+        });
+
+        // Highlight today's hours
+        const today = new Date().getDay();
+        const todayRow = document.querySelector(`.hours-row[data-day="${today}"]`);
+        if (todayRow) todayRow.classList.add('today');
     </script>
 </body>
 </html>
